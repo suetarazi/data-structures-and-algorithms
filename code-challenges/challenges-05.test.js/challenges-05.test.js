@@ -15,8 +15,11 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
-  return result;
+  for (var i=0; i<=str.length; i++) {
+      let sharpen = str.slice(i);
+      result.push(sharpen);
+  }
+  return(result);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,7 +31,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  return arr.split("");
 };
 
 
@@ -75,7 +78,12 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  let regex = /^([^ ]+ ){2}/g;
+    gruffaloCrumble.ingredients.forEach((recipe) => {
+        let ingredientList = recipe.replace(regex, '');
+        result.push(ingredientList.slice());
+    })
+  //   gruffaloCrumble.ingredients.recipe.slice(-1);
   return result;
 };
 
@@ -123,7 +131,12 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  if (arr.value %2 !== 0) {
+      arr(value);
+  } else {
+      arr();
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
