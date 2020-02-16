@@ -41,7 +41,8 @@ const sortByLength = (arr) => {
     } else {
       return 0;
     }
-  }}
+  })
+};
   
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,16 +54,16 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  arr.sort(function(a, b){
+  return arr.sort(function(a, b){
       if (a.toLowerCase() < b.toLowerCase()){ 
           return -1};
         if(a.toLowerCase() > b.toLowerCase()){
-            return 1};
-  
-      return 0;
-  })
-        
-  };
+            return 1;
+          } else {
+            return 0;
+          }
+        })
+      };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -78,7 +79,16 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
+  return arr.sort(function (a, b){
+    if (a.price < b.price){
+      return -1;
+    } if (a.price > b.price) {
+      return 1; 
+    } else {
+      return 0;
+    }
+
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,20 +98,20 @@ Write a function named sortNumbersByLength that takes in an array of numbers and
 
 For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
-
-// const sortNumbersByLength = (arr) => {
-//   arr.sort(function(a, b){
-//     if (a.length < b.length) { 
-//       return -1;
-//     } else if 
-//       (a.length > b.length) {
-//         return 1;
-//       } else {
-//         return 0;
-//       }
-//     }  
-//   };
-//   return(arr);
+//worked with Anthony Cunningham
+const sortNumbersByLength = (arr) => {
+  const stringArr = arr.stringify;
+  return stringArr.sort(function(a, b) {
+    if (a.length < b.length) { 
+      return -1;
+    } if (a.length > b.length) {
+        return 1;
+      } else {
+        return 0;
+      }
+    })  
+  };
+  
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -122,7 +132,10 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  arr.sort((a,b) =>{
+    return a.lastName < b.lastName ? -1 : 1;
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
