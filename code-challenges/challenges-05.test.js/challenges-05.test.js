@@ -97,8 +97,12 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
-  return result;
+gruffaloCrumble.ingredients.forEach((recipe) => {
+  let ingredientList = recipe.split(' ').slice(2).join(' ');
+    result.push(ingredientList);
+})
+return result;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -113,7 +117,10 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  gruffaloCrumble.steps.forEach((recipe) =>{
+    let verbList = recipe.split(' ')
+    result.push(verbList[0]);
+  })
   return result;
 };
 
@@ -132,10 +139,10 @@ For example:
 
 const removeEvenValues = (arr) => {
   if (arr.value %2 !== 0) {
-      arr(value);
-  } else {
-      arr();
-  }
+      arr.push(value);
+//   } else {
+//       arr();
+   }
   return arr;
 };
 
