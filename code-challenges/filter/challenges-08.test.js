@@ -9,7 +9,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  // Solution code here...
+  return arr.filter(value => value%2!==0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -24,7 +24,8 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  let regex = /[aeiou]/gmi
+  return arr.filter(str => str.match(regex));
 };
 
 
@@ -37,8 +38,11 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
+  return arr.filter(str => (forbiddenValues.forEach(value) == str))
+
 };
+//consider using a for loop
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -80,8 +84,8 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
-};
+  return arr.filter(obj => (obj.baseStat > minBaseStat))
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -92,7 +96,10 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
+  // filter and .map
+  let objArr =  arr.filter(obj => (obj.baseStat > minBaseStat))
+    return objArr.map((object) => (object.stat.name));
+    
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -145,7 +152,7 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
+  return arr.filter(charObj => (!charObj.children))
 };
 
 /* ------------------------------------------------------------------------------------------------
