@@ -76,7 +76,8 @@ const returnNames = (arr) => {
     console.log(answerSoFar);
     return answerSoFar;
   
-  }, []);
+  }, [])
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -86,7 +87,11 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  // let arr = str.split('');
+  return str.split('').reduce((newString, currentLetter) => {
+    console.log('accumulator ', newString);
+    return currentLetter + newString;
+}, '')
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -138,9 +143,16 @@ const characters = [
   },
 ];
 
-const countNumberOfChildren = (arr) => {
-  // Solution code here...
-};
+const countNumberOfChildren = (arr) => arr.reduce((acc, val) => (val.children ? (acc += val.children.length) : acc), 0);
+
+  // return arr.reduce((answerSoFar, value, index) => {
+  //   if (value.children) {
+  //     answerSoFar += value.children.length;
+  //   }
+  //   return answerSoFar;
+  // }, 0); 
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -151,7 +163,10 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  let sum = arr.reduce((acc, val) => {
+    return acc + val;
+  }, 0);
+  return (sum/arr.length);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -172,7 +187,12 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, val) => {
+    if (isPrime(val)){
+      acc++;
+    }
+    return acc;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
