@@ -29,12 +29,24 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  return input.filter((acc, val) => {
-    acc = acc + val; 
-  }, 0); 
-  // return acc;
-  //USE NESTED REDUCES - same logic as #1
+  let sum =0;
+  input.forEach(num => { 
+  sum += num.reduce((acc, val) => acc += val), 0;
+})
+
+return sum;
+
 };
+
+
+    // (acc + val.reduce((acc2, val2) => acc2 + val2), acc);
+    // }), 0;
+
+
+      // return acc;
+    //USE NESTED REDUCES - same logic as #1
+  
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -116,7 +128,15 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  let arr = [];
+  data.filter((char) => { 
+    if (char.gender === 'male' || char.gender === 'female') {
+      arr.push(char.name);
+      
+  } 
+})
+return arr.join(' and ');
+
 };
 
 /* ------------------------------------------------------------------------------------------------
