@@ -138,9 +138,17 @@ Write a function named calculateProduct that takes in a two-dimensional array of
 For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
-const calculateProduct = (numbers) => {
-  // Solution code here...
-};
+// const calculateProduct = (numbers) => {
+//   let product = 1;
+//   for (let i=0; i<numbers.length; i++){
+//     for (let j=0; j<numbers[i].length; j++){
+//       product *= numbers[i][j];
+//     }
+//   }
+//   return product;
+// };
+
+const calculateProduct = (numbers) => numbers.reduce((product, arr) => arr.reduce((subproduct, num) => subproduct * num, 1) * product , 1);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -158,9 +166,21 @@ const weeklyTemperatures = [
   [65, 56, 55, 52, 55, 62, 57],
 ];
 
-const averageDailyTemperature = (weather) => {
-  // Solution code here...
-};
+// const averageDailyTemperature = (weather) => {
+//   let sum = 0;
+//   let arrLength = 0;
+//   for (let i=0; i<weather.length; i++){
+//     for (let j=0; j<weather[i].length; j++){
+//       sum += weather[i][j];
+//       arrLength ++;
+//     }
+//   }
+//   return (sum/arrLength);
+// };
+
+//done in a shorter way using recursion:
+const avg = arr => arr.reduce((sum, value) => sum + value, 0)/arr.length;
+const averageDailyTemperature = (weather) =>  avg(weather.map(arr => avg(arr)));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -180,8 +200,24 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let sum, arrLength;
+  let meanAverage = Infinity;
+  for (let i=0; i<weather.length; i++){
+    sum = 0;
+    arrLength = 0;    
+    for (let j=0; j<weather[i].length; j++){
+      sum += weather[i][j];
+      arrLength++;
+    }
+    
+    if (sum/arrLength < meanAverage) meanAverage=sum/arrLength;
+
+  }
+  return meanAverage;
 };
+
+// const lowestWeeklyAverage = (weather) => Math.min(...weather.map(arr => avg(arr)));
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -196,7 +232,8 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  return str.split('\n').map(str => str.split (',').map(str => parseInt(str)).reduce((acc, val) => acc + val, 0));
+  console.log(split);
 };
 
 /* ------------------------------------------------------------------------------------------------
